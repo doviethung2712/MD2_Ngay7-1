@@ -28,7 +28,22 @@
 <body>
 <form action="data.php" method="post">
     <div class="login">
-        <h2>Login</h2>
+        <h2>Login (post)</h2>
+        <label>
+            Username:
+            <input type="text" name="username" size="30" placeholder="username">
+        </label>
+        <label>
+            Password:
+            <input type="password" name="password" size="30" placeholder="password">
+        </label>
+        <input type="submit" value="Sgin in">
+    </div>
+</form>
+<br>
+<form method="get">
+    <div class="login">
+        <h2>Login (get)</h2>
         <label>
             Username:
             <input type="text" name="username" size="30" placeholder="username">
@@ -43,4 +58,9 @@
 
 </body>
 </html>
-
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    $usernameget = $_GET["username"];
+    $passwordget = $_GET['password'];
+    echo "<h3> Hello <span style='color: red'>".$usernameget."</span> hi </h3>";
+}
